@@ -1,7 +1,8 @@
 const userModel = require('../models/user.model');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
-
+const bcrypt = require('bcrypt');
+const SALT_ROUNDS = 10;
 // register
 const register = async (req, res) => {
     const { email, firstName, lastName, password } = req.body;
@@ -10,13 +11,21 @@ const register = async (req, res) => {
     if (!email || !firstName || !lastName || !password) {
         return res.status(400).json({ message: 'Faltan campos' });
     }
-    const user = userModel.registerUser({ email, firstName, lastName, password });
+
+    const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS);
+
+    const user = userModel.registerUser({
+        email,
+        firstName,
+        lastName,
+        password: hashedPassword
+    });
     if (!user) return res.status(409).json({ message: 'Usuario ya existe' });
 
     res.status(201).json({ message: 'Usuario registrado', user });
 }
 
-const login = (req, res) => {
+const login = async (req, res) => {
     const { email, password } = req.body;
 
     if (!email || !password)
@@ -24,6 +33,9 @@ const login = (req, res) => {
 
     const user = userModel.loginUser({ email, password });
     if (!user) return res.status(401).json({ message: 'Credenciales inválidas' });
+
+    const checkPassword = await bcrypt.compare(password, user.password);
+    if (!checkPassword) return res.status(401).json({ message: 'Credenciales inválidas' });
 
     const token = jwt.sign({ email: user.email }, process.env.JWT_SECRET, {
         expiresIn: '1h',

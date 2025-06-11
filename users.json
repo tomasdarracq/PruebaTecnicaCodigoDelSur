@@ -22,5 +22,11 @@
     "firstName": "tomas",
     "lastName": "perez",
     "password": "1234"
+  },
+  {
+    "email": "tomas3@gmail.com",
+    "firstName": "tomas",
+    "lastName": "perez",
+    "password": "$2b$10$q8rL8joElm1WSZpKUm2a4.di6Hu.2htin.YO5unGzJChSTutjY/8e"
   }
 ]

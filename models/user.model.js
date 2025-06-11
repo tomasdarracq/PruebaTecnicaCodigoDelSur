@@ -27,6 +27,6 @@ const saveUser = (users) => {
 //login user
 const loginUser = ({ email, password }) => {
     const users = getUsers();
-    return users.find(u => u.email === email && u.password === password);
+    return users.find(u => u.email === email);
 };
 module.exports = { getUsers, registerUser, saveUser, loginUser };
