@@ -1,12 +1,13 @@
 require('dotenv').config();
 
+// fetch movies from themoviedb
 async function fetchMovies(keyword = '') {
     let url = '';
     if (keyword.trim() === '') {
-        // Traer películas populares
+        // if no keyword bring most popular movies
         url = 'https://api.themoviedb.org/3/movie/popular?page=1&language=es';
     } else {
-        // Buscar por keyword
+        // search by keyword
         url = `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(keyword)}&page=1&language=es`;
     }
 
@@ -19,7 +20,7 @@ async function fetchMovies(keyword = '') {
     };
 
     const res = await fetch(url, options);
-    if (!res.ok) throw new Error('Fallo al contactar con TMDb');
+    if (!res.ok) throw new Error('Failed at connecting to themoviedb');
 
     return await res.json();
 }

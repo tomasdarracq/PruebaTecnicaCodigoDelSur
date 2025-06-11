@@ -1,5 +1,6 @@
 const fs = require('node:fs');
-const path = 'users.json';
+const path = 'db/users.json'; //path to json
+
 //get all users
 const getUsers = () => {
     try {
@@ -13,19 +14,20 @@ const getUsers = () => {
 // register user
 const registerUser = (user) => {
     const users = getUsers();
-
+    //check if user already exists
     if (users.find(u => u.email === user.email)) return null;
     users.push(user);
     saveUser(users);
     return user;
 }
-//save  user in txt
+//save  user in json
 const saveUser = (users) => {
+    //write in the JSON all the users
     fs.writeFileSync(path, JSON.stringify(users, null, 2), 'utf-8');
 }
 
 //login user
-const loginUser = ({ email, password }) => {
+const loginUser = ({ email }) => {
     const users = getUsers();
     return users.find(u => u.email === email);
 };
