@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 // fetch movies from themoviedb
-async function fetchMovies(keyword = '') {
+async function fetchMoviesByKeyword(keyword = '') {
     let url = '';
     if (keyword.trim() === '') {
         // if no keyword bring most popular movies
@@ -24,5 +24,20 @@ async function fetchMovies(keyword = '') {
 
     return await res.json();
 }
+async function fetchMovieById(movieId) {
+    const url = `https://api.themoviedb.org/3/movie/${movieId}?language=es`;
+    const options = {
+        method: 'GET',
+        headers: {
+            accept: 'application/json',
+            Authorization: `Bearer ${process.env.API_KEY}`
+        }
+    };
 
-module.exports = { fetchMovies };
+    const res = await fetch(url, options);
+    if (!res.ok) throw new Error('Movie not founded');
+    return await res.json();
+}
+
+
+module.exports = { fetchMoviesByKeyword, fetchMovieById };

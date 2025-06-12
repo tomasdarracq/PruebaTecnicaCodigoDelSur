@@ -1,8 +1,16 @@
 [
   {
+    "id": "b70f0807-4d82-4132-bd6e-f9f41df6f18d",
     "email": "tomas4@gmail.com",
     "firstName": "tomas",
     "lastName": "perez",
-    "password": "$2b$10$y0CGxueolLZhd5KgctdA0e98hI3s2BBOoR5Bld/5C.NEdo/sNDCJu"
+    "password": "$2b$10$QyaDoKNIxmQw8ZsWI5Iz1.bm5oou0x72R2GgEuWpLdHikMhDN3TPW"
+  },
+  {
+    "id": "ad6d999d-d038-43fc-b400-fd928ddcc93a",
+    "email": "tomas3@gmail.com",
+    "firstName": "tomas",
+    "lastName": "perez",
+    "password": "$2b$10$6ogNGldP8KzonvsHDMb.RuyNQ44I4bTsvDHPO1bDuGHyjz3/bhFta"
   }
 ]

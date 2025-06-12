@@ -1,4 +1,6 @@
 const userModel = require('../models/user.model');
+const { v4: uuidv4 } = require('uuid');
+
 //JWT
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
@@ -22,6 +24,7 @@ const register = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS);
     // send the user data with the encrypted password to userModel.registerUser
     const user = userModel.registerUser({
+        id: uuidv4(), //id
         email,
         firstName,
         lastName,

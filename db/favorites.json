@@ -1,9 +1,30 @@
 [
   {
+    "id": "045895c8-b761-4e86-87d1-0a85bf806548",
+    "email": "tomas3@gmail.com",
+    "movieId": 1268926,
+    "movieName": "Matrix 5",
+    "addedAt": "2025-06-12T13:41:14.884Z"
+  },
+  {
+    "id": "a47bf04d-9dc2-4815-89a3-38d3bf7946b0",
+    "email": "tomas3@gmail.com",
+    "movieId": 777,
+    "movieName": "La gran ilusión",
+    "addedAt": "2025-06-12T13:41:22.814Z"
+  },
+  {
+    "id": "d34dc327-2f3a-4529-b19d-8595474dfddc",
     "email": "tomas4@gmail.com",
-    "movie": {
-      "movie": "Toy Story"
-    },
-    "addedAt": "2025-06-11T18:15:57.827Z"
+    "movieId": 775,
+    "movieName": "El viaje a la Luna",
+    "addedAt": "2025-06-12T13:41:57.533Z"
+  },
+  {
+    "id": "d0ae57d5-9460-4472-8a7c-29222731067e",
+    "email": "tomas4@gmail.com",
+    "movieId": 774,
+    "movieName": "Salida de los obreros de la fábrica",
+    "addedAt": "2025-06-12T13:42:01.822Z"
   }
 ]

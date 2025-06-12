@@ -24,8 +24,18 @@ const getFavoritesByEmail = (email) => {
 // add favorite to favorites.json
 const addFavorite = (favorite) => {
     const favorites = getAllFavorites();
+
+    for (let i = 0; i < favorites.length; i++) {
+        const f = favorites[i];
+        if (f.email === favorite.email && f.movieId === favorite.movieId) {
+            return { success: false, message: 'Movie already in favorites' };
+        }
+    }
+
+
     favorites.push(favorite);
     saveFavorites(favorites);
+    return { success: true };
 };
 
 module.exports = { addFavorite, getFavoritesByEmail };
