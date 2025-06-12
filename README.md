@@ -5,6 +5,17 @@ Este proyecto es una API REST desarrollada en Node.js + Express, cumpliendo los 
 <details>
 <summary>Requisitos Técnicos</summary>
 
+- Requisitos de usuario:
+  - Registrar
+  - Autenticar
+- Requisitos de peliculas:
+  - Obtener peliculas
+  - Obtener peliculas por keyword
+- Requisitos de favoritos:
+
+  - Agregar favorito dado un movieId
+  - Retornar favoritos de un usuario
+
 - Node.js 20
 - Express.js
 - JWT para autenticación
@@ -16,7 +27,6 @@ Este proyecto es una API REST desarrollada en Node.js + Express, cumpliendo los 
 - `GET /api/movies?keyword=opcional`
 - `GET /api/favorites`
 - `POST /api/favorites`
-
 - Datos persistidos en archivos `.json` (`users.json`, `favorites.json`).
 - Las contraseñas están encriptadas con bcrypt.
 
